@@ -51,9 +51,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/d6bb3b0a-969f-4152-bb5e-ee81260916ec.png" 
+              src="/lovable-uploads/2dc2c65c-ae60-4fb3-8b50-e27f89eb0057.png" 
               alt="ENIASMAG Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
@@ -164,3 +164,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
