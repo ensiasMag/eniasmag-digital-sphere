@@ -1,3 +1,4 @@
+
 import MainLayout from "../components/layouts/MainLayout";
 import HeroSection from "../components/home/HeroSection";
 import MagazineSection from "../components/home/MagazineSection";
