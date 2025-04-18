@@ -1,7 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, Clock, User, MapPin } from "lucide-react";
 import MainLayout from "../components/layouts/MainLayout";
+import RotatingStatue from "../components/3d/RotatingStatue";
 
 const featuredMagazines = [
   {
@@ -117,11 +117,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/lovable-uploads/d6bb3b0a-969f-4152-bb5e-ee81260916ec.png"
-                alt="ENIASMAG Logo"
-                className="h-52 md:h-64 lg:h-80 w-auto animate-pulse"
-              />
+              <RotatingStatue />
             </div>
           </div>
         </div>
