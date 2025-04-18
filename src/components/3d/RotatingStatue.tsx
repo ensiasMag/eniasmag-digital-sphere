@@ -10,7 +10,7 @@ function Statue() {
   return (
     <mesh ref={meshRef}>
       <cylinderGeometry args={[0.5, 1, 2, 32]} />
-      <meshPhongMaterial color="#841818" />
+      <meshStandardMaterial color="#841818" />
     </mesh>
   );
 }
