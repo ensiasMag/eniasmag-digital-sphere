@@ -1,15 +1,18 @@
 
 import MainLayout from "../components/layouts/MainLayout";
 import MagazineReader from "../components/magazine/MagazineReader";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 const MagazineReaderPage = () => {
   const { id } = useParams();
+  const location = useLocation();
   
-  // This is temporary data - in a real app, you would fetch this from your backend
+  // Check if we're on the insider-insights route
+  const isInsiderInsights = location.pathname === "/magazine/insider-insights";
+  
   const magazineData = {
-    title: "Example Magazine Issue",
-    pdfUrl: "/sample.pdf" // This would be your actual PDF URL from the backend
+    title: isInsiderInsights ? "Insider Insights" : "Example Magazine Issue",
+    pdfUrl: "/sample.pdf"
   };
 
   return (
