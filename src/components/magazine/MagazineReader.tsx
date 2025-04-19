@@ -9,6 +9,12 @@ interface MagazineReaderProps {
   title: string;
 }
 
+interface PageProps {
+  number: number;
+  content: string;
+  background: string;
+}
+
 const MagazineReader = ({ pdfUrl, title }: MagazineReaderProps) => {
   const flipBookRef = useRef<any>(null);
   const [currentPage, setCurrentPage] = useState(0);
@@ -17,12 +23,12 @@ const MagazineReader = ({ pdfUrl, title }: MagazineReaderProps) => {
 
   // For demo purposes, we'll use placeholder pages
   const pages = [
-    { content: "Cover Page", background: "bg-white" },
-    { content: "Table of Contents", background: "bg-gray-50" },
-    { content: "Chapter 1", background: "bg-white" },
-    { content: "Chapter 2", background: "bg-gray-50" },
-    { content: "Chapter 3", background: "bg-white" },
-    { content: "Back Cover", background: "bg-gray-50" },
+    { content: "Cover Page", background: "bg-white", number: 1 },
+    { content: "Table of Contents", background: "bg-gray-50", number: 2 },
+    { content: "Chapter 1", background: "bg-white", number: 3 },
+    { content: "Chapter 2", background: "bg-gray-50", number: 4 },
+    { content: "Chapter 3", background: "bg-white", number: 5 },
+    { content: "Back Cover", background: "bg-gray-50", number: 6 },
   ];
 
   const handlePageFlip = (e: any) => {
@@ -63,11 +69,14 @@ const MagazineReader = ({ pdfUrl, title }: MagazineReaderProps) => {
             startZIndex={0}
             autoSize={true}
             maxShadowOpacity={0.5}
-            style={{}}
-            onInit={() => setTotalPages(pages.length)}
+            clickEventForward={false}
+            useMouseEvents={true}
+            swipeDistance={0}
+            showPageCorners={true}
+            disableFlipByClick={false}
           >
-            {pages.map((page, index) => (
-              <div key={index} className={`${page.background} p-8 shadow-inner`}>
+            {pages.map((page) => (
+              <div key={page.number} className={`${page.background} p-8 shadow-inner`}>
                 <div className="h-full flex items-center justify-center text-xl">
                   {page.content}
                 </div>
