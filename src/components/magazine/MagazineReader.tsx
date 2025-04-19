@@ -13,6 +13,7 @@ interface PageProps {
   number: number;
   content: string;
   background: string;
+  image?: string;
 }
 
 const MagazineReader = ({ pdfUrl, title }: MagazineReaderProps) => {
@@ -21,14 +22,70 @@ const MagazineReader = ({ pdfUrl, title }: MagazineReaderProps) => {
   const [totalPages, setTotalPages] = useState(0);
   const [zoom, setZoom] = useState(1);
 
-  // For demo purposes, we'll use placeholder pages
+  // Mock PDF content with more realistic pages
   const pages = [
-    { content: "Cover Page", background: "bg-white", number: 1 },
-    { content: "Table of Contents", background: "bg-gray-50", number: 2 },
-    { content: "Chapter 1", background: "bg-white", number: 3 },
-    { content: "Chapter 2", background: "bg-gray-50", number: 4 },
-    { content: "Chapter 3", background: "bg-white", number: 5 },
-    { content: "Back Cover", background: "bg-gray-50", number: 6 },
+    {
+      number: 1,
+      content: "Career 101's Book",
+      background: "bg-ensiasRed-50",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+    },
+    {
+      number: 2,
+      content: `Table of Contents
+
+1. Introduction to Career Planning
+2. Resume Building Essentials
+3. Interview Preparation
+4. Networking Strategies
+5. Professional Development
+6. Industry Insights`,
+      background: "bg-white"
+    },
+    {
+      number: 3,
+      content: `Chapter 1: Introduction to Career Planning
+
+Understanding your career path is the first step towards professional success. This chapter covers:
+
+• Self-assessment techniques
+• Goal setting strategies
+• Career path mapping
+• Industry research methods`,
+      background: "bg-white",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+    },
+    {
+      number: 4,
+      content: `Chapter 2: Resume Building Essentials
+
+Learn how to craft a compelling resume that stands out:
+
+• Modern resume formats
+• Key sections and content
+• Action words and achievements
+• Portfolio development`,
+      background: "bg-white",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+    },
+    {
+      number: 5,
+      content: `Chapter 3: Interview Preparation
+
+Master the art of interviewing:
+
+• Common interview questions
+• STAR method responses
+• Body language tips
+• Follow-up strategies`,
+      background: "bg-white",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+    },
+    {
+      number: 6,
+      content: "Thank you for reading!",
+      background: "bg-ensiasRed-50"
+    },
   ];
 
   const handlePageFlip = (e: any) => {
@@ -74,11 +131,22 @@ const MagazineReader = ({ pdfUrl, title }: MagazineReaderProps) => {
             swipeDistance={0}
             showPageCorners={true}
             disableFlipByClick={false}
+            style={{}}
+            onInit={() => setTotalPages(pages.length)}
           >
             {pages.map((page) => (
               <div key={page.number} className={`${page.background} p-8 shadow-inner`}>
-                <div className="h-full flex items-center justify-center text-xl">
-                  {page.content}
+                <div className="h-full flex flex-col gap-6">
+                  {page.image ? (
+                    <div className="w-full h-64 overflow-hidden rounded-lg mb-4">
+                      <img 
+                        src={page.image} 
+                        alt={`Page ${page.number}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="whitespace-pre-wrap text-lg">{page.content}</div>
                 </div>
               </div>
             ))}
