@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MagazinePage from "./pages/MagazinePage";
+import MagazineReaderPage from "./pages/MagazineReaderPage";
 import ArticlesPage from "./pages/ArticlesPage";
 import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
