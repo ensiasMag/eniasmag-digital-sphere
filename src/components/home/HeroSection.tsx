@@ -16,7 +16,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                to="/magazine"
+                to="/magazine/insider-insights"
                 className="bg-white text-ensiasRed-800 hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition-colors"
               >
                 Browse Magazine

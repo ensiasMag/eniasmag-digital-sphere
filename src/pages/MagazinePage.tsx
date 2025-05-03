@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, Search } from "lucide-react";
 import MainLayout from "../components/layouts/MainLayout";
@@ -141,7 +142,7 @@ const MagazinePage = () => {
                 </p>
                 <div className="space-x-4">
                   <Link
-                    to={`/magazine/${currentMagazine.id}`}
+                    to={currentMagazine.path}
                     className="inline-block bg-ensiasRed-700 hover:bg-ensiasRed-800 text-white font-medium py-2 px-6 rounded-md transition-colors"
                   >
                     Read Now

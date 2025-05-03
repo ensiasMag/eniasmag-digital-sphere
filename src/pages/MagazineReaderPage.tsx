@@ -10,8 +10,9 @@ const MagazineReaderPage = () => {
   // Check if we're on the insider-insights route
   const isInsiderInsights = location.pathname === "/magazine/insider-insights";
   
+  // Set up magazine data based on the route
   const magazineData = {
-    title: isInsiderInsights ? "Insider Insights" : "Example Magazine Issue",
+    title: isInsiderInsights ? "Insider Insights - H.R's Golden Advice" : "Example Magazine Issue",
     pdfUrl: "/sample.pdf"
   };
 
