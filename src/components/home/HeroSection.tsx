@@ -29,7 +29,7 @@ const HeroSection = () => {
               </Link>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center h-[500px]">
             <RotatingStatue />
           </div>
         </div>
